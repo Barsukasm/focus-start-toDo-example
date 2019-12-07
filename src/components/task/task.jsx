@@ -5,7 +5,11 @@ import './task.scss';
 
 const Task = (props) => {
   return (
-    <div className={`task ${props.completed ? 'task__completed' : ''}`}>
+    <div
+      className={`task${props.completed ? ' task__completed' : ''}`}
+      data-id={props.id}
+      onClick={props.toggleCompleted}
+    >
       {props.title}
     </div>
   );
@@ -13,7 +17,9 @@ const Task = (props) => {
 
 Task.propTypes = {
   title: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequired
+  completed: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  toggleCompleted: PropTypes.func.isRequired
 };
 
 export default Task;
